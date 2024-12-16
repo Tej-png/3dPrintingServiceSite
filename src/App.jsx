@@ -64,7 +64,7 @@ function App() {
   return (
     <>
       <div className="main">
-        <img src="./src/assets/logo.png" height="216px" width="256px"></img>
+        <img src="/src/assets/logo.png" height="216px" width="256px"></img>
         <div className="tag-line">
           <h1>
             Hey <i className="spark">Dude</i>, how can I help you today?
@@ -80,7 +80,7 @@ function App() {
             onKeyDown={(e) => (e.key === "Enter" ? getResponse() : "")}
           ></input>
           <a onClick={getResponse}>
-            <img src="./src/assets/model.png" height="25px"></img>
+            <img src="/src/assets/model.png" height="25px"></img>
           </a>
         </div>
         <div className="response">
@@ -90,7 +90,7 @@ function App() {
               <p>
                 <a className="miniLogo">
                   <img
-                    src={`./src/assets/${chat.role}.png`}
+                    src={`/src/assets/${chat.role}.png`}
                     height="20px"
                     padding="5px"
                   />
