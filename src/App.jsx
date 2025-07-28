@@ -21,6 +21,7 @@ function App() {
     project: '',
     message: ''
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -45,13 +46,18 @@ function App() {
             <FaCube className="logo-icon" />
             <span>3D PrintCraft</span>
           </div>
-          <ul className="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul className={`nav-menu ${mobileMenuOpen ? 'nav-menu-active' : ''}`}>
+            <li><a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
+            <li><a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a></li>
+            <li><a href="#gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</a></li>
+            <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
+            <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
           </ul>
+          <div className="nav-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </nav>
 
