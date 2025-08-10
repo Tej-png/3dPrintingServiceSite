@@ -1,291 +1,123 @@
-import { useState } from "react";
-import "./App.css";
-import { 
-  FaCube, 
-  FaCog, 
-  FaRocket, 
-  FaPalette, 
-  FaEnvelope, 
-  FaPhone, 
-  FaMapMarkerAlt,
-  FaCheckCircle,
-  FaClock,
-  FaShieldAlt,
-  FaTools
-} from "react-icons/fa";
+import './App.css'
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    project: '',
-    message: ''
-  });
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    alert('Thank you for your inquiry! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', project: '', message: '' });
-  };
-
   return (
-    <div className="App">
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="nav-logo">
-            <FaCube className="logo-icon" />
-            <span>3D PrintCraft</span>
-          </div>
-          <ul className={`nav-menu ${mobileMenuOpen ? 'nav-menu-active' : ''}`}>
-            <li><a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
-            <li><a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a></li>
-            <li><a href="#gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</a></li>
-            <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
-            <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
-          </ul>
-          <div className="nav-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <div className="site">
+      <header className="navbar">
+        <div className="container inner">
+          <a className="brand" href="#home" aria-label="Acme Home">
+            <span className="brand-mark" aria-hidden="true"></span>
+            <span>Acme</span>
+          </a>
+          <nav className="nav-links" aria-label="Primary Navigation">
+            <a href="#features">Features</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact" className="btn">Contact</a>
+          </nav>
         </div>
-      </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-content">
-          <h1>Custom 3D Printing Services</h1>
-          <p>Bringing your ideas to life with precision, quality, and speed. From prototypes to final products, we deliver exceptional 3D printing solutions tailored to your needs.</p>
-          <div className="hero-buttons">
-            <a href="#contact" className="btn-primary">Get Quote</a>
-            <a href="#gallery" className="btn-secondary">View Gallery</a>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="floating-cube">
-            <FaCube size={120} />
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="services">
-        <div className="container">
-          <h2>Our Services</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <FaRocket className="service-icon" />
-              <h3>Rapid Prototyping</h3>
-              <p>Fast turnaround times for your prototype needs. Perfect for testing designs and iterations.</p>
-              <ul>
-                <li>24-48 hour delivery</li>
-                <li>Multiple material options</li>
-                <li>High precision</li>
-              </ul>
-            </div>
-            <div className="service-card">
-              <FaCog className="service-icon" />
-              <h3>Custom Parts</h3>
-              <p>Replacement parts, custom tools, and functional components made to your exact specifications.</p>
-              <ul>
-                <li>Engineering-grade materials</li>
-                <li>Tight tolerances</li>
-                <li>Durable finishes</li>
-              </ul>
-            </div>
-            <div className="service-card">
-              <FaPalette className="service-icon" />
-              <h3>Artistic Creations</h3>
-              <p>Sculptures, decorative items, and unique artistic pieces. Bring your creative vision to reality.</p>
-              <ul>
-                <li>Multiple colors available</li>
-                <li>Fine detail resolution</li>
-                <li>Custom finishing</li>
-              </ul>
-            </div>
-            <div className="service-card">
-              <FaTools className="service-icon" />
-              <h3>Design Consultation</h3>
-              <p>Need help with your design? Our experts can optimize your models for 3D printing success.</p>
-              <ul>
-                <li>Design optimization</li>
-                <li>Material recommendations</li>
-                <li>Cost-effective solutions</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="why-choose-us">
-        <div className="container">
-          <h2>Why Choose Us?</h2>
-          <div className="features-grid">
-            <div className="feature">
-              <FaCheckCircle className="feature-icon" />
-              <h3>Quality Guaranteed</h3>
-              <p>We ensure every print meets our high standards for accuracy and finish quality.</p>
-            </div>
-            <div className="feature">
-              <FaClock className="feature-icon" />
-              <h3>Fast Turnaround</h3>
-              <p>Quick delivery without compromising on quality. Most orders completed within 1-3 days.</p>
-            </div>
-            <div className="feature">
-              <FaShieldAlt className="feature-icon" />
-              <h3>Reliable Service</h3>
-              <p>Consistent results you can count on, backed by years of 3D printing expertise.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section id="gallery" className="gallery">
-        <div className="container">
-          <h2>Our Work</h2>
-          <p>Take a look at some of our recent projects</p>
-          <div className="gallery-grid">
-            <div className="gallery-item">
-              <div className="gallery-placeholder">
-                <FaCube size={60} />
-                <span>Prototype Model</span>
+      <main>
+        <section id="home" className="hero">
+          <div className="container inner">
+            <div>
+              <div className="kicker">Introducing the new Acme Starter</div>
+              <h1>Build modern sites faster with a beautiful React template</h1>
+              <p>Production-ready structure, delightful defaults, and accessible components. Ship a polished marketing site in hours, not days.</p>
+              <div className="hero-actions">
+                <a href="#get-started" className="btn btn-primary">Get Started</a>
+                <a href="#features" className="btn">Explore Features</a>
+              </div>
+              <div className="badge-row">
+                <span className="badge">React + Vite</span>
+                <span className="badge">Accessible</span>
+                <span className="badge">Responsive</span>
+                <span className="badge">Dark UI</span>
               </div>
             </div>
-            <div className="gallery-item">
-              <div className="gallery-placeholder">
-                <FaCog size={60} />
-                <span>Custom Gear</span>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <div className="gallery-placeholder">
-                <FaPalette size={60} />
-                <span>Artistic Sculpture</span>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <div className="gallery-placeholder">
-                <FaTools size={60} />
-                <span>Replacement Part</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="about">
-        <div className="container">
-          <div className="about-content">
-            <div className="about-text">
-              <h2>About 3D PrintCraft</h2>
-              <p>With over 5 years of experience in 3D printing, we specialize in delivering high-quality, custom solutions for businesses and individuals. Our state-of-the-art equipment and expertise in various materials allow us to tackle projects of any complexity.</p>
-              <p>From rapid prototyping for startups to custom parts for established businesses, we're committed to helping you bring your ideas to life with precision and care.</p>
-              <div className="stats">
-                <div className="stat">
-                  <h3>500+</h3>
-                  <p>Projects Completed</p>
-                </div>
-                <div className="stat">
-                  <h3>98%</h3>
-                  <p>Customer Satisfaction</p>
-                </div>
-                <div className="stat">
-                  <h3>24hrs</h3>
-                  <p>Average Turnaround</p>
+            <div className="hero-card" role="img" aria-label="Product preview card">
+              <div className="glow" aria-hidden="true"></div>
+              <div className="content">
+                <div style={{display:'grid', gap: '12px'}}>
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'10px'}}>
+                    <div className="metric">
+                      <h3>98%</h3>
+                      <p>Performance</p>
+                    </div>
+                    <div className="metric">
+                      <h3>100</h3>
+                      <p>Accessibility</p>
+                    </div>
+                  </div>
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:'10px'}}>
+                    <div className="metric">
+                      <h3>0.6s</h3>
+                      <p>TTI</p>
+                    </div>
+                    <div className="metric">
+                      <h3>99</h3>
+                      <p>Best Practices</p>
+                    </div>
+                    <div className="metric">
+                      <h3>SEO</h3>
+                      <p>Friendly</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="contact">
-        <div className="container">
-          <h2>Get In Touch</h2>
-          <div className="contact-content">
-            <div className="contact-info">
-              <h3>Contact Information</h3>
-              <div className="contact-item">
-                <FaEnvelope className="contact-icon" />
-                <span>hello@3dprintcraft.com</span>
-              </div>
-              <div className="contact-item">
-                <FaPhone className="contact-icon" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="contact-item">
-                <FaMapMarkerAlt className="contact-icon" />
-                <span>123 Innovation Street, Tech City, TC 12345</span>
-              </div>
+        <section id="features" className="section">
+          <div className="container">
+            <h2>Everything you need</h2>
+            <p className="lead">A sensible structure and polished UI so you can focus on content and product.</p>
+            <div className="features">
+              <article className="feature">
+                <h3>Clean structure</h3>
+                <p>Use a minimal file layout with clear entry points to keep your site maintainable.</p>
+              </article>
+              <article className="feature">
+                <h3>Modern design</h3>
+                <p>Elegant dark theme with accent colors, subtle depth and refined typography.</p>
+              </article>
+              <article className="feature">
+                <h3>Fast by default</h3>
+                <p>Vite-powered dev server and production build for instant feedback and tiny bundles.</p>
+              </article>
+              <article className="feature">
+                <h3>Accessible</h3>
+                <p>Semantic HTML, clear focus styles and strong contrast to support every user.</p>
+              </article>
             </div>
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <h3>Request a Quote</h3>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="text"
-                name="project"
-                placeholder="Project Type"
-                value={formData.project}
-                onChange={handleInputChange}
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Project Details"
-                rows="5"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              ></textarea>
-              <button type="submit" className="btn-primary">Send Message</button>
-            </form>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <FaCube className="logo-icon" />
-              <span>3D PrintCraft</span>
+        <section id="pricing" className="cta">
+          <div className="container">
+            <div className="panel">
+              <h2>Ready to launch?</h2>
+              <p>Start with this template and customize it to your brand. Deploy anywhere.</p>
+              <a href="#get-started" className="btn btn-primary">Use Template</a>
             </div>
-            <p>&copy; 2024 3D PrintCraft. All rights reserved.</p>
           </div>
+        </section>
+      </main>
+
+      <footer>
+        <div className="container inner">
+          <span className="brand" aria-label="Acme">
+            <span className="brand-mark" aria-hidden="true"></span>
+            <span>Acme</span>
+          </span>
+          <p>© {new Date().getFullYear()} Acme. All rights reserved.</p>
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
